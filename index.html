@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+
+  #gallery_section {
+    height: 40vh;
+    width: 100vw;
+    background-color: gray;
+  }
+
+  .slide_carousel {
+    overflow: hidden;
+    display: flex;
+    position: relative;
+  }
+
+  .carousel_section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    transition: left 0.5s;
+  }
+
+  .carousel_section .carousel_items {
+    box-sizing: border-box;
+    width: 60vw;
+    padding: 20px;
+  }
+</style>
+
+<body>
+  <section id="gallery_section" class="slide_carousel">
+    <section class="carousel_section">
+    </section>
+  </section>
+</body>
+<script src="script.js"></script>
+<script>
+  const list = [
+    {
+      image: 'https://via.placeholder.com/150?text=1',
+    },
+    {
+      image: 'https://via.placeholder.com/150?text=2',
+    },
+    {
+      image: 'https://via.placeholder.com/150?text=3',
+    },
+    {
+      image: 'https://via.placeholder.com/150?text=4',
+    },
+    {
+      image: 'https://via.placeholder.com/150?text=5',
+    },
+    {
+      image: 'https://via.placeholder.com/150?text=6',
+    },
+    {
+      image: 'https://via.placeholder.com/150?text=7',
+    },
+  ];
+
+  // const showImage = (index) => {
+  //   console.log(`Image ${index + 1} clicked`);
+  //   const displacement = document.querySelectorAll('.carousel_items')[0].offsetWidth;
+  //   const w = document.querySelector('.slide_carousel').offsetWidth;
+  //   document.querySelector('.carousel_section').style.left = `${0 - (index * displacement) + (w / 2) - (displacement / 2)}px`;
+  // }
+
+  // for (let i = 0; i < list.length; i++) {
+  //   const element = list[i];
+  //   const div = document.createElement('div');
+  //   div.setAttribute('class', 'carousel_items');
+  //   div.innerHTML += `
+  //     <img src="${element.image}" alt="image" onclick="showImage(${i})" width="100%">
+  //   `;
+  //   document.querySelector('.carousel_section').appendChild(div);
+  // }
+
+  // const w = document.querySelector('.slide_carousel').offsetWidth;
+  // console.log(w / 2);
+  // const displacement = document.querySelectorAll('.carousel_items')[0].offsetWidth;
+  // document.querySelector('.carousel_section').style.left = `${(w / 2) - (displacement / 2)}px`;
+
+  slideModal({
+    dom: document.querySelector('#gallery_section'),
+    list: list,
+    actionCallback: (index) => {
+      console.log(`Image ${index + 1} clicked`);
+    }
+  })
+</script>
+
+</html>
